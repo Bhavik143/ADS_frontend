@@ -79,6 +79,10 @@ const ApplicationForm = () => {
         navigate('/signup');
     }
 
+    const handleLogout = async () => {
+        navigate('/');
+    }
+
     return (
         <div className="container my-5">
             <div className="row justify-content-center">
@@ -183,14 +187,25 @@ const ApplicationForm = () => {
                             </div>
                             <div className="col-12">
                                 <div className="row">
-                                    <div className="col-md-6">
-                                        <button
-                                            type="button"
-                                            className="btn btn-dark w-100 fw-bold"
-                                            onClick={handleSubmit}
-                                        >
-                                            Send
-                                        </button>
+                                    <div className="col-md-12" style={{ display: "flex", justifyContent: "space-between" }}>
+                                        {/* <div className="my-2"> */}
+                                            <button
+                                                type="button"
+                                                className="btn btn-dark w-80 fw-bold "
+                                                onClick={handleSubmit}
+                                            >
+                                                Send
+                                            </button>
+                                        {/* </div> */}
+                                        {/* <div className="my-2"> */}
+                                            <button
+                                                type="button"
+                                                className="btn btn-dark w-80 fw-bold"
+                                                onClick={handleLogout}
+                                            >
+                                                Log Out
+                                            </button>
+                                        {/* </div> */}
                                     </div>
                                     {(role === 'admin') && <div className="col-md-6">
                                         <Link to="/view" className="btn btn-success w-100 fw-bold">
@@ -202,14 +217,14 @@ const ApplicationForm = () => {
                         </div>
                     </form>
                 </div>
-            </div>
+            </div >
 
-            {(role === 'admin') && 
+            {(role === 'admin') &&
                 <button type="button" className="btn btn-warning my-5" onClick={handlenewuser}>Add User</button>
             }
-        </div>
+        </div >
     );
-    
+
 }
 
 export default ApplicationForm;
